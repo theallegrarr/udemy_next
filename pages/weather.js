@@ -1,24 +1,22 @@
 import Head from 'next/head'
-import image from './assets/firebase-sticker.jpg'
 import Header from  './components/Header'
 import style from "../style/index.less"
 // styling(less, css, scss... ), images
 
-export default function Home() {
+export default function Weather() {
   return (
     <div className="container">
       <Head>
-        <title>My Cool App</title>
+        <title>The Weather</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <div className={style.main}>
           <h1 className="title">
-            Welcome to My App
+            Today is Looking Good
           </h1>
           <Header />
-          <img src={image} />
         </div>
       </main>
     </div>
