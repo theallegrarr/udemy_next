@@ -1,6 +1,7 @@
 const express = require("express")
 const next = require("next")
 require("dotenv").config()
+const connect = require("./model/connect")
 
 const PORT = process.env.PORT
 const app = next({ dev: process.env.NODE_ENV !== 'production' })
@@ -18,6 +19,8 @@ app
       return handle(req, res);
     })
 
+    connect();
+    
     server.listen(PORT, err => {
       if(err) throw err;
       console.log((`>_ Ready on ${PORT}`))
