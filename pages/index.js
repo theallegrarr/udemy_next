@@ -6,7 +6,7 @@ import style from "../style/index.less"
 
 export default function Home() {
   return (
-    <div className="container">
+    <div className="xcontainer">
       <Head>
         <title>My Cool App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -14,10 +14,10 @@ export default function Home() {
 
       <main>
         <div className={style.main}>
-          <h1 className="title">
+          <Header />
+          <h1 className="title m-5">
             Welcome to My App
           </h1>
-          <Header />
           <img src={image} />
         </div>
       </main>

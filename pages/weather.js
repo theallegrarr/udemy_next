@@ -12,7 +12,7 @@ function Weather(props) {
   const [ name, setName ] = useState("")
 
   return (
-    <div className="container">
+    <div className="xcontainer">
       <Head>
         <title>The Weather</title>
         <link rel="icon" href="/favicon.ico" />
@@ -20,10 +20,10 @@ function Weather(props) {
 
       <main>
         <div className={style.main}>
+          <Header />
           <h1 className="title">
             Today is Looking Good for {userInfo.name}
           </h1>
-          <Header />
           <input 
             name="name" 
             value={name} 

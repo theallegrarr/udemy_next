@@ -5,7 +5,7 @@ import style from "../style/index.less"
 
 export default function Todo() {
   return (
-    <div className="container">
+    <div className="xcontainer">
       <Head>
         <title>My Todos</title>
         <link rel="icon" href="/favicon.ico" />
@@ -13,10 +13,10 @@ export default function Todo() {
 
       <main>
         <div className={style.main}>
+          <Header />
           <h1 className="title">
             Cool Stuff todo Today
           </h1>
-          <Header />
         </div>
       </main>
     </div>
