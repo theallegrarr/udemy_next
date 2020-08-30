@@ -5,6 +5,7 @@ import style from "../style/index.less"
 // styling(less, css, scss... ), images
 
 export default function Home() {
+
   return (
     <div className="xcontainer">
       <Head>

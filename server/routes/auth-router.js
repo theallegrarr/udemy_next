@@ -35,15 +35,16 @@ function routes(){
         const token = createToken(user)
 
         res.status(201).json({
+          success: true,
           user: {
             name: saved.name,
             email: saved.email,
-            age: saved.age
+            age: saved.age,
+            token
           },
-          token
         })
       }).catch(error => {
-        res.status(500).json(error)
+        res.status(500).json({ success: false, error })
       })
   })
 
@@ -64,16 +65,16 @@ function routes(){
 
       const token = createToken(existingUser)
       res.status(200).json({
-        message: 'login successful',
+        success: true,
         user: {
           name: existingUser.name,
           email: existingUser.email,
-          age: existingUser.age
+          age: existingUser.age,
+          token
         },
-        token
       })
     } catch(error) {
-      res.status(500).json(error)
+      res.status(500).json({ success: false, error })
     }
   })
 

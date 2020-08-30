@@ -1,7 +1,7 @@
 
-import { Form, Button, Modal } from 'react-bootstrap'
+import { Form, Button, Modal, Alert } from 'react-bootstrap'
 
-const Register = ({ show, setShow, form, setFormValue }) =>{
+const Register = ({ show, setShow, form, setFormValue, register, isLoading, error }) =>{
 
   return(<>
     <>
@@ -10,6 +10,11 @@ const Register = ({ show, setShow, form, setFormValue }) =>{
           <Modal.Title>Create Your Account</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        {error &&
+          <Alert variant='danger'>
+            {error}
+          </Alert>
+        }
         <Form>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Name</Form.Label>
@@ -51,8 +56,11 @@ const Register = ({ show, setShow, form, setFormValue }) =>{
           <Button variant="secondary" onClick={() => setShow(false)}>
             Cancel
           </Button>
-          <Button variant="primary">
-            Register
+          <Button 
+            variant="primary" 
+            onClick={() => register()}
+            disabled={isLoading}>
+            {isLoading ? '...loading' : 'Register'}
           </Button>
         </Modal.Footer>
       </Modal>

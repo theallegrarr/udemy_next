@@ -1,5 +1,6 @@
 const express = require("express")
 const next = require("next")
+const cors = require("cors")
 require("dotenv").config()
 const connect = require("./model/connect")
 const bodyParser = require('body-parser').json()
@@ -15,6 +16,7 @@ app
     const routes = require('./routes/index.js')
     const authRouter = require('./routes/auth-router.js')
 
+    server.use(cors())
     server.use('/api', routes(server))
     server.use('/api/auth', bodyParser, authRouter(server))
 
