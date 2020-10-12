@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "nodemon server/index.js",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "heroku-postbuild": "heroku-nextjs-build"
   },
   "dependencies": {
     "@zeit/next-less": "^1.0.1",

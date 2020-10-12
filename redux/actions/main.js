@@ -24,7 +24,7 @@ export const userSignUp = ({ name, age, email, password }) => async dispatch => 
       type: t.LOADING,
       payload: true
     })
-    const apiResponse = await axios.post(`http://localhost:3243/api/auth/register`, {name, age, email, password});
+    const apiResponse = await axios.post(process.env.API_ADDRESS+`/api/auth/register`, {name, age, email, password});
 
     if(apiResponse.data.success){
       localStorage.setItem("user_info", JSON.stringify(apiResponse.data.user))
@@ -52,7 +52,7 @@ export const userSignIn = ({ email, password }) => async dispatch => {
       type: t.LOADING,
       payload: true
     })
-    const apiResponse = await axios.post(`http://localhost:3243/api/auth/login`, {email, password});
+    const apiResponse = await axios.post(process.env.API_ADDRESS+`/api/auth/login`, {email, password});
 
     if(apiResponse.data.success){
       localStorage.setItem("user_info", JSON.stringify(apiResponse.data.user))

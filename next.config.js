@@ -7,6 +7,9 @@ module.exports = withLess(withImages(withSass({
   cssLoaderOptions: {
     importLoaders: 2,
   },
+  env: {
+    API_ADDRESS: "http://localhost:3243"
+  },
   webpack: config => {
     config.module.rules.forEach(rule => {
       if(rule.test){
