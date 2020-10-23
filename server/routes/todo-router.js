@@ -34,37 +34,47 @@ function routes(){
       }).catch(error => res.status(500).json({ success: false, error: error }))
   })
 
-  router.put('/update', validate, (req, res) => {
+  router.put('/update', validate, async (req, res) => {
     let info=req.body
 
-    TodoSchema.update({ 
-        _id: info.id 
-      },{
-        $set: {
-          title: info.title,
-          done: info.done
-        }
-      })
-      .then(todo => {
-        res.status(200).json({
-          success: true,
-          todos: todo
+    try {
+      const todo = await TodoSchema.update({ 
+          _id: info.id 
+        },{
+          $set: {
+            title: info.title,
+            done: info.done
+          }
         })
-      }).catch(error => res.status(500).json({ success: false, error: error }))
+
+        if(todo) {
+          const todos = await TodoSchema.find({ email: info.email })
+          res.status(200).json({
+            success: true,
+            todos: todos
+          })
+        }
+    } catch(error){
+      res.status(500).json({ success: false, error: error })
+    }
   })
 
-  router.delete('/delete', validate, (req, res) => {
+  router.delete('/delete', validate, async (req, res) => {
     let info=req.body
-
-    TodoSchema.deleteOne({ 
-        _id: info.id 
-      })
-      .then(todo => {
+    try {
+      const todo = await TodoSchema.deleteOne({ 
+          _id: info.id 
+        })
+      if(todo) {
+        const todos = await TodoSchema.find({ email: info.email })
         res.status(200).json({
           success: true,
-          todos: todo
+          todos: todos
         })
-      }).catch(error => res.status(500).json({ success: false, error: error }))
+      }
+    }catch(error){
+      res.status(500).json({ success: false, error: error })
+    }
   })
 
   return router;
