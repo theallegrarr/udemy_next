@@ -22,7 +22,7 @@ function routes(){
       }).catch(error => res.status(500).json({ success: false, error: error }))
   })
 
-  router.get('/my', validate, (req, res) => {
+  router.post('/my', validate, (req, res) => {
     let info=req.body
 
     TodoSchema.find({ email: info.email })
@@ -34,7 +34,7 @@ function routes(){
       }).catch(error => res.status(500).json({ success: false, error: error }))
   })
 
-  router.put('/update', validate, async (req, res) => {
+  router.post('/update', validate, async (req, res) => {
     let info=req.body
 
     try {
@@ -59,7 +59,7 @@ function routes(){
     }
   })
 
-  router.delete('/delete', validate, async (req, res) => {
+  router.post('/delete', validate, async (req, res) => {
     let info=req.body
     try {
       const todo = await TodoSchema.deleteOne({ 

@@ -60,7 +60,7 @@ function routes(){
       // 12345 &*#(@*IDIDUFI)
       const passwordsMatch = await bcrypt.compare(user.password, existingUser.password)
       if(!passwordsMatch){
-        res.status(400).send("Bad credentials")
+        res.status(400).json({ success: false, error: "Bad credentials" })
       }
 
       const token = createToken(existingUser)
