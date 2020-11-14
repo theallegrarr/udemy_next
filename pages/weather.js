@@ -19,7 +19,7 @@ function Weather(props) {
       </Head>
 
       <main>
-        <div className={style.main}>
+        <div className="main">
           <Header />
           <h1 className="title">
             Today is Looking Good for {userInfo.name}

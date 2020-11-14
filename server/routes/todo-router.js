@@ -14,6 +14,7 @@ function routes(){
         res.status(201).json({
           success: true,
           todo: {
+            _id: saved._id,
             title: saved.title,
             email: saved.email,
             done: saved.done
@@ -38,7 +39,7 @@ function routes(){
     let info=req.body
 
     try {
-      const todo = await TodoSchema.update({ 
+      const todo = await TodoSchema.updateOne({ 
           _id: info.id 
         },{
           $set: {

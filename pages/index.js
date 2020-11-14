@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className={style.main}>
+        <div className="main">
           <Header />
           <h1 className="title m-5">
             Welcome to My App

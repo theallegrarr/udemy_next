@@ -8,6 +8,7 @@
     "start": "node server/index.js"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.20.0",
@@ -32,4 +33,3 @@
     "redux-thunk": "^2.3.0"
   }
 }
-
