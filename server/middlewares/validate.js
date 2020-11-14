@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
         if(error){
           res.status(401).json({
             success: false,
-            error: error
+            error: error.message
           })
         } else {
           next();
