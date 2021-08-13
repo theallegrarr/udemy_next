@@ -21,7 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "less": "^3.11.2",
     "mongoose": "^5.9.22",
-    "next": "9.4.4",
+    "next": "11.1.0",
     "next-images": "^1.4.0",
     "next-redux-wrapper": "^6.0.2",
     "nodemon": "^2.0.4",
